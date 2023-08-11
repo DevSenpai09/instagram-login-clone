@@ -21,11 +21,9 @@ const UsersTable = ({ user }: Props) => {
 
   const [clients, setClients] = useState<any>([]);
 
-  const usersDocRef = doc(db, "users", user.uid);
-
-  console.log(user);
-
   useEffect(() => {
+    const usersDocRef = doc(db, "users", user?.uid);
+
     const getUsers = async () => {
       try {
         const data = await getDoc(usersDocRef);
