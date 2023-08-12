@@ -68,16 +68,16 @@ const UsersTable = ({ user }: Props) => {
               <td className="text-center py-5 text-xs">{data.country}</td>
 
               {/* CITY */}
-              <td className="text-center py-5 text-xs">{data.capital}</td>
+              <td className="text-center py-5 text-xs">{data.city}</td>
 
-              {/* CONTINENT */}
-              <td className="text-center py-5 text-xs">{data.continent}</td>
+              {/* LONGITUDE */}
+              <td className="text-center py-5 text-xs">{data.longitude}</td>
 
               {/* LATITUDE */}
               <td className="text-center py-5 text-xs">{data.latitude}</td>
 
-              {/* LONGITUDE */}
-              <td className="text-center py-5 text-xs">{data.longitude}</td>
+              {/* CONTINENT */}
+              <td className="text-center py-5 text-xs">{data.timezone}</td>
             </tr>
           ))}
         </tbody>
