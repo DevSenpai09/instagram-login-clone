@@ -13,10 +13,10 @@ const UsersTable = ({ user }: Props) => {
     "PASSWORD",
     "IP",
     "COUNTRY",
-    "CAPITAL",
-    "CONTINENT",
-    "LATITUDE",
+    "CITY",
     "LONGITUDE",
+    "LATITUDE",
+    "TIMEZONE",
   ];
 
   const [clients, setClients] = useState<any>([]);
